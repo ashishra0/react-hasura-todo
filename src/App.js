@@ -29,7 +29,7 @@ class App extends Component {
           <Nav className="mr-auto">
             {
               isAuthenticated() && (
-                <Nav.Link onClick={this.goTo.bind(this, 'manage')}>Dashboard</Nav.Link>
+                <Nav.Link onClick={this.goTo.bind(this, 'home')}>Dashboard</Nav.Link>
               )
             }
             {
