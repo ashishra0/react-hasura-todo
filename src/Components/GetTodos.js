@@ -10,24 +10,19 @@ import {
   Col,
   Table
 } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import FontAwesome from "./FontAwesome";
 
 const GetTodos = () => (
   <Query query={getIncompleteTodos}>
     {({ loading, error, data }) => {
       if (loading)
         return (
-          <h2>
-            Loading...{" "}
-            <FontAwesomeIcon icon={faSpinner} style={{ color: "blue" }} spin />
-          </h2>
+          <FontAwesome/>
         );
       if (error) return `Error. Check console logs`;
       if (data.todos.length === 0)
         return (
           <div>
-
             <h3>Be Productive <span role="img" aria-label={"strong"}>💪🏻</span></h3>
             <AddTodos />
           </div>
@@ -61,7 +56,6 @@ const GetTodos = () => (
               <AddTodos/>
             </Col>
           </Row>
-
         </div>
       );
     }}
