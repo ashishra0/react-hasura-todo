@@ -6,8 +6,8 @@ import '../App.css'
 import GetTodos from "./GetTodos";
 
 
-var token = localStorage.getItem("auth0:id_token");
-export var client = new ApolloClient({
+const token = localStorage.getItem("auth0:id_token");
+export const client = new ApolloClient({
   uri: GRAPHQL_URL,
   headers: {
     'Authorization': `Bearer ${token}`
