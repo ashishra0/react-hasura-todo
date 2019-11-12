@@ -11,16 +11,9 @@ import {
 } from "react-bootstrap";
 import { client } from "./Home";
 import { ApolloProvider } from "react-apollo";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import FontAwesome from "./FontAwesome";
 
 class GetAllTodos extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     const { isAuthenticated } = this.props.auth;
     return (
@@ -38,14 +31,7 @@ class GetAllTodos extends Component {
                     {({ loading, error, data }) => {
                       if (loading)
                         return (
-                          <h2>
-                            Loading...{" "}
-                            <FontAwesomeIcon
-                              icon={faSpinner}
-                              style={{ color: "blue" }}
-                              spin
-                            />
-                          </h2>
+                          <FontAwesome/>
                         );
                       if (error) return `Error fetching todos.`;
                       let count = 0;
@@ -61,14 +47,14 @@ class GetAllTodos extends Component {
                             </thead>
                             <tbody>
                             {data.todos.map(todo => (
-                              <tr>
+                              <tr key={todo.id}>
                                 <td>{(count += 1)}</td>
-                                <td>{todo.todo_text}<Badge>{todo.todo_mark && (`✅`)}</Badge></td>
+                                <td>{todo.text}<Badge>{todo.completed && (`✅`)}</Badge></td>
                                 <td>
-                                  { !todo.todo_mark &&
-                                  (<span className="mark-todo"><MarkTodo todo_id={todo.todo_id} /></span>)
+                                  { !todo.completed &&
+                                  (<span className="mark-todo"><MarkTodo id={todo.id} /></span>)
                                   }
-                                  <DeleteTodo todo_id={todo.todo_id} />
+                                  <DeleteTodo id={todo.id} />
                                 </td>
                               </tr>
                             ))}
