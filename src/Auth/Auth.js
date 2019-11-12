@@ -1,6 +1,6 @@
 import history from '../history';
 import auth0 from 'auth0-js';
-import { AUTH_KEYS } from './auth-vars';
+import { AUTH_KEYS } from './Vars';
 
 
 export default class Auth {
@@ -42,7 +42,7 @@ export default class Auth {
     localStorage.setItem('auth0:access_token', authResult.accessToken);
     localStorage.setItem('auth0:id_token', authResult.idToken);
     localStorage.setItem('auth0:expires_at', expiresAt);
-    localStorage.setItem('auth0:id_token:sub', authResult.idTokenPayload.sub)
+    localStorage.setItem('auth0:id_token:user_sub', authResult.idTokenPayload.sub)
     history.replace('/home');
   }
 
@@ -50,7 +50,7 @@ export default class Auth {
     localStorage.removeItem('auth0:access_token');
     localStorage.removeItem('auth0:id_token');
     localStorage.removeItem('auth0:expires_at');
-    localStorage.removeItem('auth0:id_token:sub');
+    localStorage.removeItem('auth0:id_token:user_sub');
     history.replace('/home');
   }
 
