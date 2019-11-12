@@ -25,6 +25,10 @@
   padding-right: 10px;
 }
 
+.home {
+  background-image: image('assets/stripes.svg');
+}
+
 .App-link {
   color: #09d3ac;
 }
