@@ -6,5 +6,5 @@ import {
 export const AUTH_KEYS = {
   domain: AUTH_DOMAIN,
   clientId: AUTH_CLIENT_ID,
-  callbackUrl: 'http://localhost:3000/callback'
+  callbackUrl: 'https://todo-with-react-hasura.herokuapp.com/callback'
 };
