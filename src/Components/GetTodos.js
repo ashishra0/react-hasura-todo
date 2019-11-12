@@ -17,7 +17,7 @@ const GetTodos = () => (
     {({ loading, error, data }) => {
       if (loading)
         return (
-          <FontAwesome/>
+          <FontAwesome />
         );
       if (error) return `Error. Check console logs`;
       if (data.todos.length === 0)
