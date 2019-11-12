@@ -2,23 +2,23 @@ import gql from 'graphql-tag';
 
 const getAllTodos = gql`
     query {
-        todos(order_by: [{todo_mark: asc,todo_id: desc}]){
-            todo_id
-            todo_text
-            todo_mark
-            todo_user
+        todos(order_by: [{completed: asc,id: desc}]){
+            id
+            text
+            completed
+            user
         }
     }`;
 
 const getIncompleteTodos = gql`
     query {
         todos(
-            where: {todo_mark: {_eq:false}}
+            where: {completed: {_eq:false}}
         ){
-            todo_id
-            todo_text
-            todo_mark
-            todo_user
+            id
+            text
+            completed
+            user
         }
     }
 `;
@@ -26,28 +26,28 @@ const getIncompleteTodos = gql`
 const getCompleteTodos = gql`
     query {
         todos(
-            where: {todo_mark: {_eq:true}}
+            where: {completed: {_eq:true}}
         ){
-            todo_id
-            todo_text
-            todo_mark
-            todo_user
+            id
+            text
+            completed
+            user
         }
     }`;
 
 const addTodo = gql`
-    mutation($todo_text: String!) {
-        insert_todos(objects: [{todo_text: $todo_text}]){
+    mutation($text: String!) {
+        insert_todos(objects: [{text: $text}]){
             affected_rows
         }
     }
 `;
 
 const markTodo = gql`
-    mutation($todo_id: Int!) {
+    mutation($id: Int!) {
         update_todos(
-            where: {todo_id: {_eq: $todo_id}}
-            _set: {todo_mark: true}
+            where: {id: {_eq: $id}}
+            _set: {completed: true}
         ){
             affected_rows
         }
@@ -55,9 +55,9 @@ const markTodo = gql`
 `;
 
 const deleteTodo = gql`
-    mutation($todo_id: Int!) {
+    mutation($id: Int!) {
         delete_todos(
-            where: {todo_id: {_eq:$todo_id}}
+            where: {id: {_eq:$id}}
         ){
             affected_rows
         }
