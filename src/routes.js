@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Router } from 'react-router-dom';
 import App from './App';
 import Home from './Components/Home';
-import Callback from './Components/Callback';
+import Loader from './Components/Loader';
 import Auth from './Auth/Auth';
 import history from './history';
 import GetAllTodos from './Components/GetAllTodos';
@@ -15,7 +15,7 @@ const handleAuthentication = (nextState, replace) => {
   }
 };
 
-export const makeMainRoutes = () => {
+const Routes = () => {
   return (
     <Router history={history} component={App}>
       <div>
@@ -24,10 +24,11 @@ export const makeMainRoutes = () => {
         <Route path="/alltodos" render={(props) => <GetAllTodos auth={auth} {...props} />} />
         <Route path="/callback" render={(props) => {
           handleAuthentication(props);
-          return <Callback {...props} />
+          return <Loader {...props} />
         }} />
       </div>
     </Router>
   );
 };
 
+export default Routes;
