@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Navbar,
   Button,
@@ -7,17 +7,17 @@ import {
 import "./App.css";
 
 class App extends Component {
-  goTo(route) {
+  goTo = (route) => {
     this.props.history.replace(`/${route}`);
-  }
+  };
 
-  login() {
+  login = () => {
     this.props.auth.login();
-  }
+  };
 
-  logout() {
+  logout = () => {
     this.props.auth.logout();
-  }
+  };
 
   render() {
     const { isAuthenticated } = this.props.auth;
@@ -29,22 +29,16 @@ class App extends Component {
           <Nav className="mr-auto">
             {
               isAuthenticated() && (
-                <Nav.Link onClick={this.goTo.bind(this, 'home')}>Dashboard</Nav.Link>
-              )
-            }
-            {
-              isAuthenticated() && (
-                <Nav.Link onClick={this.goTo.bind(this, 'alltodos')}>All Todos</Nav.Link>
+                <Fragment>
+                  <Nav.Link onClick={this.goTo.bind(this, 'home')}>Dashboard</Nav.Link>
+                  <Nav.Link onClick={this.goTo.bind(this, 'alltodos')}>All Todos</Nav.Link>
+                  <Button variant="outline-info" onClick={this.logout}>Logout</Button>
+                </Fragment>
               )
             }
             {
               !isAuthenticated() && (
-                <Button variant="outline-info" onClick={this.login.bind(this)}>Login</Button>
-              )
-            }
-            {
-              isAuthenticated() && (
-                <Button variant="outline-info" onClick={this.logout.bind(this)}>Logout</Button>
+                <Button variant="outline-info" onClick={this.login}>Login</Button>
               )
             }
           </Nav>
