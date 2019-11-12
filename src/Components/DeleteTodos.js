@@ -4,12 +4,6 @@ import { deleteTodo, getIncompleteTodos, getAllTodos } from "../GraphQueries/que
 import { Button } from "react-bootstrap";
 
 class DeleteTodo extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     return (
       <Mutation
