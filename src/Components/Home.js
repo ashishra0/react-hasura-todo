@@ -6,19 +6,15 @@ import '../App.css'
 import GetTodos from "./GetTodos";
 
 
-const TOKEN = localStorage.getItem("auth0:id_token");
-export const client = new ApolloClient({
+var token = localStorage.getItem("auth0:id_token");
+export var client = new ApolloClient({
   uri: GRAPHQL_URL,
   headers: {
-    'Authorization': `Bearer ${TOKEN}`
+    'Authorization': `Bearer ${token}`
   }
 });
 
 class Home extends Component {
-
-  login() {
-    this.props.auth.login();
-  }
   render() {
     const { isAuthenticated } = this.props.auth;
     return (
