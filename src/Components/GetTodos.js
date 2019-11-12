@@ -27,7 +27,8 @@ const GetTodos = () => (
       if (data.todos.length === 0)
         return (
           <div>
-            <h3>Be Productive 💪🏻</h3>
+
+            <h3>Be Productive <span role="img" aria-label={"strong"}>💪🏻</span></h3>
             <AddTodos />
           </div>
         );
@@ -46,12 +47,12 @@ const GetTodos = () => (
                 </thead>
                 <tbody>
                 {data.todos.map(todo => (
-                  <tr>
+                  <tr key={todo.id}>
                     <td>{(count += 1)}</td>
-                    <td>{todo.todo_text}</td>
+                    <td>{todo.text}</td>
                     <td>
-                      <span className="mark-todo"><MarkTodo todo_id={todo.todo_id} /></span>
-                      <DeleteTodo todo_id={todo.todo_id} />
+                      <span className="mark-todo"><MarkTodo id={todo.id} /></span>
+                      <DeleteTodo id={todo.id} />
                     </td>
                   </tr>
                 ))}
