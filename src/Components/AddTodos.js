@@ -10,16 +10,12 @@ class AddTodos extends Component {
     super(props);
 
     this.state = {
-      todo_text: "",
-      todo_user: ""
+      text: "",
     }
   }
 
-  addtodo(insert_todos) {
-    var todo_user = localStorage.getItem('sub');
-    this.setState({ todo_user: todo_user }, function () {
-      insert_todos({ variables: {todo_text: this.state.todo_text}, refetchQueries: [{ query: getIncompleteTodos }, { query: getAllTodos }] });
-    });
+  submitTodo(insert_todos) {
+    insert_todos({ variables: {text: this.state.text}, refetchQueries: [{ query: getIncompleteTodos }, { query: getAllTodos }] });
   }
 
   render() {
@@ -29,16 +25,16 @@ class AddTodos extends Component {
           <Form
             onSubmit={e => {
               e.preventDefault();
-              this.addtodo(insert_todos);
+              this.submitTodo(insert_todos);
             }}
           >
-            <FormGroup controlId="Createtodo" style={{ 'margin-bottom': '0px' }}>
+            <FormGroup>
               <InputGroup>
                 <FormControl
                   type="text"
-                  value={this.state.todo_text}
-                  placeholder="Create a todo task."
-                  onChange={e => this.setState({ todo_text: e.target.value })}
+                  value={this.state.text}
+                  placeholder="Achieve something today."
+                  onChange={e => this.setState({ text: e.target.value })}
                 />
                 <Button type="submit" variant="outline-primary"><FontAwesomeIcon icon={faPlus}/></Button>
               </InputGroup>
