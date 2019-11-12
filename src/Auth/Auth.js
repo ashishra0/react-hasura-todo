@@ -30,7 +30,7 @@ export default class Auth {
         this.setSession(authResult);
         history.replace('/home');
       } else if (err) {
-        history.replace('/home');
+        history.replace('/');
         console.error(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -51,7 +51,7 @@ export default class Auth {
     localStorage.removeItem('auth0:id_token');
     localStorage.removeItem('auth0:expires_at');
     localStorage.removeItem('auth0:id_token:user_sub');
-    history.replace('/home');
+    history.replace('/');
   }
 
   isAuthenticated() {
