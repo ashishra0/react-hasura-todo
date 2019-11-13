@@ -23,7 +23,7 @@ const GetTodos = () => (
       if (data.todos.length === 0)
         return (
           <div>
-            <h3>Be Productive <span role="img" aria-label={"strong"}>💪🏻</span></h3>
+            <h3 className="caption">Be Productive <span role="img" aria-label={"strong"}>💪🏻</span></h3>
             <AddTodos />
           </div>
         );
