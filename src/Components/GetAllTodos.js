@@ -39,7 +39,7 @@ class GetAllTodos extends Component {
                         <div>
                           <Table bordered hover>
                             <thead>
-                            <tr>
+                            <tr className="table-primary">
                               <th>#</th>
                               <th>Tasks</th>
                               <th>Actions</th>
