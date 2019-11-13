@@ -30,7 +30,7 @@ export default class Auth {
         this.setSession(authResult);
         history.replace('/home');
       } else if (err) {
-        history.replace('/');
+        history.replace('/home');
         console.error(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
