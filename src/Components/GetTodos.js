@@ -1,24 +1,17 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { getIncompleteTodos } from "../GraphQueries/queries";
-import MarkTodo from "./MarkTodo";
-import DeleteTodo from "./DeleteTodos";
 import AddTodos from "./AddTodos";
 import '../App.css'
-import {
-  Row,
-  Col,
-  Table
-} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import FontAwesome from "./FontAwesome";
+import TodoTable from "./TodoTable";
 
 const GetTodos = () => (
   <Query query={getIncompleteTodos}>
     {({ loading, error, data }) => {
       if (loading)
-        return (
-          <FontAwesome />
-        );
+        return <FontAwesome />;
       if (error) return `Error. Check console logs`;
       if (data.todos.length === 0)
         return (
@@ -32,27 +25,7 @@ const GetTodos = () => (
         <div className="container">
           <Row>
             <Col sm={12}>
-              <Table bordered hover>
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Tasks</th>
-                  <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {data.todos.map(todo => (
-                  <tr key={todo.id}>
-                    <td>{(count += 1)}</td>
-                    <td>{todo.text}</td>
-                    <td>
-                      <span className="mark-todo"><MarkTodo id={todo.id} /></span>
-                      <DeleteTodo id={todo.id} />
-                    </td>
-                  </tr>
-                ))}
-                </tbody>
-              </Table>
+              <TodoTable data={data} count={count}/>
               <AddTodos/>
             </Col>
           </Row>
