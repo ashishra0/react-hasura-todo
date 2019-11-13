@@ -5,6 +5,7 @@ import {
   Nav
 } from "react-bootstrap";
 import "./App.css";
+import LoginPage from "./Components/LoginPage";
 
 class App extends Component {
   goTo = (route) => {
@@ -25,7 +26,7 @@ class App extends Component {
     return (
       <div>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand className="appHeader">React-Todo-Hasura</Navbar.Brand>
+          <Navbar.Brand className="appHeader">Hasura Todo</Navbar.Brand>
           <Nav className="mr-auto">
             {
               isAuthenticated() && (
@@ -36,13 +37,15 @@ class App extends Component {
                 </Fragment>
               )
             }
-            {
-              !isAuthenticated() && (
-                <Button variant="outline-info" onClick={this.login}>Login</Button>
-              )
-            }
           </Nav>
         </Navbar>
+        {
+          !isAuthenticated() && (
+            <Fragment>
+              <LoginPage btn={this.login} title={'Hasura Todo'}/>
+            </Fragment>
+          )
+        }
       </div>
     );
   }
