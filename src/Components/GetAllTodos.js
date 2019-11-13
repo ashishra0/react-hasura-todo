@@ -33,7 +33,7 @@ class GetAllTodos extends Component {
                         return (
                           <FontAwesome/>
                         );
-                      if (error) return `Error fetching todos.`;
+                      if (error) return <div>{""}</div>;
                       let count = 0;
                       return (
                         <div>
