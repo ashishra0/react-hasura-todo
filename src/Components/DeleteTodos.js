@@ -14,12 +14,12 @@ class DeleteTodo extends Component {
           { query: getAllTodos }
         ]}
       >
-        {(delete_todos, { data }) => (
+        {(deleteTodo, { data }) => (
           <Button
             variant="outline-danger"
             onClick={e => {
               e.preventDefault();
-              delete_todos();
+              deleteTodo();
             }}
           >
             Delete
