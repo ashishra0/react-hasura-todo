@@ -5,16 +5,21 @@ import { GRAPHQL_URL } from '../secret';
 import '../App.css'
 import GetTodos from "./GetTodos";
 
-
-var token = localStorage.getItem("auth0:id_token");
-export var client = new ApolloClient({
-  uri: GRAPHQL_URL,
-  headers: {
-    'Authorization': `Bearer ${token}`
-  }
-});
+export var client;
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    var token = localStorage.getItem("auth0:id_token");
+    client = new ApolloClient({
+      uri: GRAPHQL_URL,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  }
+
+
   render() {
     const { isAuthenticated } = this.props.auth;
     return (
