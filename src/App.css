@@ -25,9 +25,55 @@
   padding-right: 10px;
 }
 
-.home {
-  background-image: image('assets/stripes.svg');
+
+.build .title {
+  position: relative;
 }
+
+.caption {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.title {
+  font-weight: 100;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  padding: 0;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+  z-index: 2;
+  display: inline-block;
+  font-family: Bangers;
+  font-size: 5rem;
+}
+
+.title--medium {
+  line-height: 0.7;
+}
+.title--full::before {
+  height: 100%;
+  transform: translateY(0) rotate(-0.3deg);
+}
+
+.title::before {
+  content: '';
+  position: absolute;
+  width: 102%;
+  background: #1b1b1b;
+  left: -1%;
+  z-index: -1;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.build {
+  position: relative;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
 
 .App-link {
   color: #09d3ac;
