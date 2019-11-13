@@ -5,17 +5,17 @@ import { Button } from 'react-bootstrap';
 
 class MarkTodo extends Component {
 
-  markTodoCompleted(update_todos) {
-    update_todos({ variables: this.props, refetchQueries: [{ query: getIncompleteTodos }, { query: getAllTodos }] })
+  markTodoCompleted(updateTodo) {
+    updateTodo({ variables: this.props, refetchQueries: [{ query: getIncompleteTodos }, { query: getAllTodos }] })
   }
 
   render() {
     return (
       <Mutation mutation={markTodo}>
-        {(update_todos, { data }) => (
+        {(updateTodo) => (
           <Button variant="outline-success" onClick={e => {
             e.preventDefault();
-            this.markTodoCompleted(update_todos);
+              this.markTodoCompleted(updateTodo);
           }} >Done️</Button>
         )}
       </Mutation>
