@@ -10,7 +10,7 @@ export var client;
 class Home extends Component {
   constructor(props) {
     super(props);
-    var token = localStorage.getItem("auth0:id_token");
+    const token = localStorage.getItem("auth0:id_token");
     client = new ApolloClient({
       uri: GRAPHQL_URL,
       headers: {
