@@ -25,7 +25,7 @@ class App extends Component {
 
     return (
       <div>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="primary" variant="dark">
           <Navbar.Brand className="appHeader">Hasura Todo</Navbar.Brand>
           <Nav className="mr-auto">
             {
@@ -33,7 +33,7 @@ class App extends Component {
                 <Fragment>
                   <Nav.Link onClick={this.goTo.bind(this, 'home')}>Dashboard</Nav.Link>
                   <Nav.Link onClick={this.goTo.bind(this, 'alltodos')}>All Todos</Nav.Link>
-                  <Button variant="outline-info" onClick={this.logout}>Logout</Button>
+                  <Button variant="outline-warning" onClick={this.logout}>Logout</Button>
                 </Fragment>
               )
             }
