@@ -33,7 +33,7 @@ class App extends Component {
                 <Fragment>
                   <Nav.Link onClick={this.goTo.bind(this, 'home')}>Dashboard</Nav.Link>
                   <Nav.Link onClick={this.goTo.bind(this, 'alltodos')}>All Todos</Nav.Link>
-                  <Button variant="outline-warning" onClick={this.logout}>Logout</Button>
+                  <Button variant="danger" onClick={this.logout}>Logout</Button>
                 </Fragment>
               )
             }
