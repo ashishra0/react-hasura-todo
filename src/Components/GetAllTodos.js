@@ -12,6 +12,7 @@ import {
 import { client } from "./Home";
 import { ApolloProvider } from "react-apollo";
 import FontAwesome from "./FontAwesome";
+import Error from "./Error";
 
 class GetAllTodos extends Component {
   render() {
@@ -22,18 +23,14 @@ class GetAllTodos extends Component {
           <div className="container">
             <h2 style={{ textAlign: "center" }}>All Todos</h2>
             <h3 style={{ textAlign: "center" }}>
-
             </h3>
             <Container>
               <Row>
                 <Col sm={12}>
                   <Query query={getAllTodos}>
                     {({ loading, error, data }) => {
-                      if (loading)
-                        return (
-                          <FontAwesome/>
-                        );
-                      if (error) return <div>{""}</div>;
+                      if (loading) return <FontAwesome/>;
+                      if (error) return <Error/>;
                       let count = 0;
                       return (
                         <div>
