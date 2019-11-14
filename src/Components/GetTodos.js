@@ -5,6 +5,7 @@ import AddTodos from "./AddTodos";
 import '../App.css'
 import { Row, Col } from "react-bootstrap";
 import FontAwesome from "./FontAwesome";
+import Error from "./Error";
 import TodoTable from "./TodoTable";
 
 const GetTodos = () => (
@@ -12,7 +13,7 @@ const GetTodos = () => (
     {({ loading, error, data }) => {
       if (loading)
         return <FontAwesome />;
-      if (error) return `Error. Check console logs`;
+      if (error) return <Error error={error}/>
       if (data.todos.length === 0)
         return (
           <div>
