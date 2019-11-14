@@ -14,18 +14,18 @@ class AddTodos extends Component {
     }
   }
 
-  submitTodo(insert_todos) {
-    insert_todos({ variables: {text: this.state.text}, refetchQueries: [{ query: getIncompleteTodos }, { query: getAllTodos }] });
+  submitTodo(insertTodo) {
+    insertTodo({ variables: {text: this.state.text}, refetchQueries: [{ query: getIncompleteTodos }, { query: getAllTodos }] });
   }
 
   render() {
     return (
       <Mutation mutation={addTodo}>
-        {(insert_todos, { data }) => (
+        {(insertTodo, { data }) => (
           <Form
             onSubmit={e => {
               e.preventDefault();
-              this.submitTodo(insert_todos);
+              this.submitTodo(insertTodo);
             }}
           >
             <FormGroup>
