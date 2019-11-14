@@ -30,7 +30,7 @@ class GetAllTodos extends Component {
                   <Query query={getAllTodos}>
                     {({ loading, error, data }) => {
                       if (loading) return <FontAwesome/>;
-                      if (error) return <Error/>;
+                      if (error) return <Error error={error}/>;
                       let count = 0;
                       return (
                         <div>
