@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/react-hasura-todo
     steps:
     - attach_workspace:
-      at: /build
+        at: /build
     - run:
         name: apply hasura migration
         command: |
