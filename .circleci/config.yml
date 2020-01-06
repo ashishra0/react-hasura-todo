@@ -12,4 +12,4 @@ jobs:
         name: apply hasura migration
         working_directory: ./hasura
         command: |
-          cd hasura && hasura migrate apply --admin-secret valleyforge
+          pwd
