@@ -4,6 +4,4 @@ jobs:
     - run:
       name: apply migrations
       working_directory: ./hasura
-      command: |
-      curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash
-      hasura migrate apply --admin-secret valleyforge
+      command: .circleci/migrate.sh
