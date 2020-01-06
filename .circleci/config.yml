@@ -13,4 +13,4 @@ jobs:
     - run:
         name: apply hasura migration
         command: |
-          pwd
+          cd hasura
