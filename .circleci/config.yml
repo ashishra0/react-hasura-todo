@@ -3,5 +3,6 @@ jobs:
   apply_migrations:
     - run:
       name: apply migrations
+      working_directory: ./hasura
       command: |
-        cd ../hasura && hasura migrate apply --admin-secret valleyforge
+        hasura migrate apply --admin-secret valleyforge
