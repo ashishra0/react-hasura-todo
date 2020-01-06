@@ -2,15 +2,16 @@ version: 2
 jobs:
   build:
     machine: true
-    working_directory: ~/react-hasura-todo
     steps:
     - run:
         name: download hasura cli
         command: |
           curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash
-    - attach_workspace:
-        at: /home/circleci/project
     - run:
         name: apply hasura migration
         command: |
+          hasura init --directory hasura --endpoint https://react-auth0-hasura.herokuapp.com
+
           cd hasura
+          hasura create "init" --from-server
+          hasura migrate apply --admin-secret valleyforge
