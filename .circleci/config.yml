@@ -13,5 +13,5 @@ jobs:
           hasura init --directory hasura --endpoint https://react-auth0-hasura.herokuapp.com
 
           cd hasura
-          hasura create "init" --from-server
+          hasura migrate create "init" --from-server
           hasura migrate apply --admin-secret valleyforge
