@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  apply_hasura_migration:
+  build:
     steps:
     - run:
         name: apply hasura migration
