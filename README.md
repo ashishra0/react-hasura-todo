@@ -50,6 +50,6 @@ and add the following:
 - `npm start` The app should automatically load in the browser on `localhost:3000`
 ---
 
-If you run into some errors feel free to open a issue.
+If you run into some errors feel free to open a issue..
 
 
