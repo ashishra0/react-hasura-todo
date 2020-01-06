@@ -9,7 +9,7 @@ jobs:
         command: |
           curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash
     - attach_workspace:
-        at: /project
+        at: /home/circleci/project
     - run:
         name: apply hasura migration
         command: |
