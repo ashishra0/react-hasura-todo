@@ -10,4 +10,6 @@ jobs:
     - run:
         name: apply hasura migration
         command: |
-          pwd && ls
+          cp -avr /Users/ashishrao/react-hasura-todo/hasura /home/circleci/project
+          cd hasura
+          ls -l
