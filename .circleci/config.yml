@@ -5,10 +5,11 @@ jobs:
     steps:
     - run:
         name: download hasura cli
+        working_directory: ~/react-hasura-todo
         command: |
           curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash
     - run:
         name: apply hasura migration
-        working_directory: ~/react-hasura-todo
+        working_directory: ./hasura
         command: |
           cd hasura && hasura migrate apply --admin-secret valleyforge
