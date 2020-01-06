@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  apply_hasura_migration:
+    run:
+      name: apply hasura migration
+      command: |
+        curl -L "https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash"
+        cd /hasura && hasura migrate apply --admin-secret "valleyforge"
