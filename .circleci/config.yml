@@ -14,4 +14,4 @@ jobs:
 
           cd hasura
           hasura migrate create "init" --from-server --admin-secret valleyforge
-          hasura migrate apply --admin-secret valleyforge
+          hasura migrate apply --up --admin-secret valleyforge
