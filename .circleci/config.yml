@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      image: hasura/graphql-engine:v1.0.0-alpha42.cli-migrations
-      working_directory: ~/react-hasura-todo/hasura
+    - image: hasura/graphql-engine:v1.0.0-alpha42.cli-migrations
+    working_directory: ~/react-hasura-todo/hasura
     steps:
-      attach_workspace:
+    - attach_workspace:
         at: /hasura-migrations
     - run:
         name: download hasura cli
