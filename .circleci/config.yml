@@ -24,4 +24,4 @@ jobs:
 
           cd hasura
           hasura migrate create "init" --from-server
-          hasura migrate apply
+          hasura migrate status
