@@ -2,14 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: busybox
+      - image: alpine
     steps:
     - run:
-      name: install bash
-      command: |
-        apk update
-        apk upgrade
-        apk add bash
+        name: install bash
+        command: |
+          apk update
+          apk upgrade
+          apk add bash
     - run:
         name: download hasura cli
         command: |
