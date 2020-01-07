@@ -1,7 +1,8 @@
 version: 2
 jobs:
   build:
-    machine: true
+    docker:
+      - image: alpine:3.7
     steps:
     - run:
         name: download hasura cli
@@ -14,4 +15,4 @@ jobs:
 
           cd hasura
           hasura migrate create "init" --from-server
-          hasura migrate status
+          hasura migrate apply
