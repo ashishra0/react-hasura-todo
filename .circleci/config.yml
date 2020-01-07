@@ -1,7 +1,8 @@
 version: 2
 jobs:
   build:
-    machine: true
+    docker:
+      image: hasura/graphql-engine:v1.0.0-alpha42.cli-migrations
     steps:
     - run:
         name: download hasura cli
@@ -10,8 +11,8 @@ jobs:
     - run:
         name: apply hasura migration
         command: |
-          hasura init --directory hasura --endpoint https://react-auth0-hasura.herokuapp.com
+          hasura init --directory hasura --endpoint https://hasura-with-circleci.herokuapp.com
 
           cd hasura
-          hasura migrate create "init" --from-server --admin-secret valleyforge
-          hasura migrate apply --admin-secret valleyforge --version 1578316048240
+          hasura migrate create init --from-server
+          hasura migrate status
