@@ -5,6 +5,12 @@ jobs:
       - image: busybox
     steps:
     - run:
+      name: install bash
+      command: |
+        apk update
+        apk upgrade
+        apk add bash
+    - run:
         name: download hasura cli
         command: |
           curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash
