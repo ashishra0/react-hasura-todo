@@ -11,6 +11,9 @@ jobs:
           apk upgrade
           apk add bash
     - run:
+        name: install curl
+        command: apk add curl
+    - run:
         name: download hasura cli
         command: |
           curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash
