@@ -3,7 +3,10 @@ jobs:
   build:
     docker:
       image: hasura/graphql-engine:v1.0.0-alpha42.cli-migrations
+      working_directory: ~/react-hasura-todo/hasura
     steps:
+      attach_workspace:
+        at: /hasura-migrations
     - run:
         name: download hasura cli
         command: |
@@ -12,7 +15,6 @@ jobs:
         name: apply hasura migration
         command: |
           hasura init --directory hasura --endpoint https://hasura-with-circleci.herokuapp.com
-
           cd hasura
           hasura migrate create init --from-server
           hasura migrate status
